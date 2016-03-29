@@ -1,0 +1,23 @@
+{
+  "author" : "",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "random",
+      "identifier" : "random"
+    }
+  ],
+  "menu" : {
+    "items" : [
+      "random"
+    ],
+    "title" : "random"
+  },
+  "identifier" : "com.example.sketch.510b1e6b-b620-4baa-b5c9-2e5a9d4c0564",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "",
+  "name" : "random"
+}

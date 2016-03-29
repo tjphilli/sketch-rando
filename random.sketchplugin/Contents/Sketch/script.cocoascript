@@ -1,0 +1,28 @@
+var onRun = function(context) {
+  var selectedLayers = context.selection;
+	var selectedCount = selectedLayers.count();
+
+	if (selectedCount == 0) {
+	  log('No layers are selected.');
+	} else {
+
+		// refactor to allow for n swaps
+		var first_layer = selectedLayers[0];
+
+
+		//first_layer.style().contextSettings().opacity = 15
+		for (var i=0; i<selectedCount; i++) {
+	      	var current_layer = selectedLayers[i];
+
+	 		var r = getRandom(5, 95);
+			[[[current_layer style] contextSettings] setOpacity: r/100];
+
+	    };
+
+	    }
+};
+
+
+var getRandom = function(min, max) {
+	return Math.floor(Math.random() * (max- min + 1)) + min;
+}
