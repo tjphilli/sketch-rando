@@ -5,13 +5,45 @@
       "script" : "script.cocoascript",
       "handler" : "onRun",
       "shortcut" : "",
-      "name" : "random",
-      "identifier" : "random"
+      "name" : "opacity",
+      "identifier" : "opacity"
+    },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "randoColor",
+      "shortcut" : "",
+      "name" : "color",
+      "identifier" : "color"
+    },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "randoScale",
+      "shortcut" : "",
+      "name" : "scale",
+      "identifier" : "scale"
+    },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "randoRotation",
+      "shortcut" : "",
+      "name" : "rotation",
+      "identifier" : "rotation"
+    },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "randoTranslation",
+      "shortcut" : "",
+      "name" : "translation",
+      "identifier" : "translation"
     }
   ],
   "menu" : {
     "items" : [
-      "random"
+      "opacity",
+      "color",
+      "scale",
+      "rotation",
+      "translation"
     ],
     "title" : "random"
   },

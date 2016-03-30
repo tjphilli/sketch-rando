@@ -21,8 +21,110 @@ var onRun = function(context) {
 
 	    }
 };
+var randoScale = function(context) {
+  var selectedLayers = context.selection;
+  var selectedCount = selectedLayers.count();
+  for (var i=0; i<selectedCount; i++) {
+    var current_layer = selectedLayers[i];
+    var scale = getRandom(50, 150) / 100;
+    var midX=current_layer.frame().midX();
+    var midY=current_layer.frame().midY();
 
+    // Scale layer by 200%
+    current_layer.multiplyBy(scale);
+
+    // Translate frame to the original center point.
+    current_layer.frame().midX = midX;
+    current_layer.frame().midY = midY;
+
+    };
+}
+var randoTranslation = function(context) {
+  var selectedLayers = context.selection;
+  var selectedCount = selectedLayers.count();
+  for (var i=0; i<selectedCount; i++) {
+    var current_layer = selectedLayers[i];
+    var average = current_layer.frame().width() + current_layer.frame().height()) / 4;
+    log(average)
+    var translationX = getRandom(0, average);
+    var translationY = getRandom(0, average);
+
+    log(translationX)
+
+    current_layer.frame().midX = current_layer.frame().midX() + translationX;
+    current_layer.frame().midY = current_layer.frame().midY() + translationY;
+
+    };
+}
+var randoRotation = function(context) {
+  var selectedLayers = context.selection;
+  var selectedCount = selectedLayers.count();
+  for (var i=0; i<selectedCount; i++) {
+    var current_layer = selectedLayers[i];
+    var rotation = getRandom(0, 360);
+
+    current_layer.rotation = rotation;
+
+    };
+}
+var randoColor = function (context) {
+  // log("test")
+  // var doc = context.document
+  // var floor = doc.askForUserInput_initialValue("Floor?", "5")
+  // var ceil = doc.askForUserInput_initialValue("Ceiling?", "95")
+  // log(floor + ceil)
+  var selectedLayers = context.selection;
+  var selectedCount = selectedLayers.count();
+  for (var i=0; i<selectedCount; i++) {
+    var first_layer = selectedLayers[i];
+    // first_layer.style().fills().array()[0].colorGeneric = MSColor.blackColor()
+
+    var fill = first_layer.style().fills().array()[0]
+    var r = decToHex(getRandom(0, 255))
+    var g = decToHex(getRandom(0, 255))
+    var b = decToHex(getRandom(0, 255))
+    var colorString = "#"+r+b+g
+    fill.color = MSColor.colorWithSVGString(colorString);
+  }
+  log(colorString)
+  // log(first_layer.style().fills().array()[0])
+}
 
 var getRandom = function(min, max) {
 	return Math.floor(Math.random() * (max- min + 1)) + min;
+}
+
+var decToHex = function(dec) {
+  var first_digit = Math.floor(dec/16);
+  var second_digit = dec % 16;
+	var hexed_first_digit = hexChars(first_digit);
+  var hexed_second_digit = hexChars(second_digit);
+  return "" + hexed_first_digit + hexed_second_digit;
+}
+
+var hexChars =  function(digit) {
+  switch (digit) {
+    case 10:
+      return "A";
+      break;
+    case 11:
+      return "B";
+      break;
+    case 12:
+      return "C";
+      break;
+    case 13:
+      return "D";
+      break;
+    case 14:
+      return "E";
+      break;
+    case 15:
+      return "F";
+      break;
+    default:
+      return digit;
+      break;
+  }
+  return -1;
 }
